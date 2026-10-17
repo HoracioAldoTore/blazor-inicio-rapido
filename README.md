@@ -1,7 +1,7 @@
 # blazor-inicio-rapido
 Curso de Introducción a Blazor guiado por componetes. Del mas sencillo al mas complejo.
 
-Temario:
+### Temario:
 <ol>
   <li><b>Primer Componente</b> (Estructura básica de un .razor, marco visual para <code>reutilizar y encapsular</code>).</li>
   <li><b>Parametros</b> (Comunicación de datos desde el padre hacia el hijo con <code>[Parameter]</code>).</li>
