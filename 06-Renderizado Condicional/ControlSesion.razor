@@ -1,0 +1,25 @@
+﻿<div>
+    @if (estaLogueado)
+    {
+        <button @onclick="CerrarSesion" style="background-color: #dc3545; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
+            Cerrar Sesión
+        </button>
+    }
+    else
+    {
+        <button @onclick="IniciarSesion" style="background-color: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
+            Iniciar Sesión
+        </button>
+    }
+
+    <p style="margin-top: 10px; font-family: sans-serif;">
+        Estado actual: <strong>@(estaLogueado ? "Usuario conectado" : "Usuario desconectado")</strong>
+    </p>
+</div>
+
+@code {
+    private bool estaLogueado = false;
+
+    private void IniciarSesion() => estaLogueado = true;
+    private void CerrarSesion() => estaLogueado = false;
+}

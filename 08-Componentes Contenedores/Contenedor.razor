@@ -1,0 +1,14 @@
+﻿<div style="border: 1px solid #cbd5e1; border-radius: 8px; padding: 20px; background-color: #f1f5f9; margin-bottom: 15px;">
+    <h4 style="margin-top: 0; color: #007bff;">Mi Componente Contenedor</h4>
+    <hr />
+
+    <!-- Aquí se renderiza todo el contenido HTML que le pasemos desde el padre -->
+    <div>
+        @ChildContent
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+}

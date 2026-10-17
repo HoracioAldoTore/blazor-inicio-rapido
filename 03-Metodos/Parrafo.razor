@@ -1,0 +1,14 @@
+﻿<div style="background-color: #f1f5f9; padding: 30px; margin: 5px; border-radius: 8px; border: 1px solid #cbd5e1;">
+    <p>@mensaje</p>
+</div>
+
+@code {
+    private string mensaje = "Texto original";
+
+    // Método público que puede llamarse desde afuera
+    public void CambiarTexto()
+    {
+        mensaje = $"¡Texto cambiado desde el padre. {DateTime.Now.Second} Segundos!";
+        StateHasChanged(); // Avisa a Blazor que vuelva a pintar
+    }
+}

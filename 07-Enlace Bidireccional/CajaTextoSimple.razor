@@ -1,0 +1,14 @@
+﻿<div style="background-color: #f1f5f9; padding: 20px; border-radius: 8px; border: 1px solid #cbd5e1;">
+    <p>Despues de escribir preciona Enter.</p>
+
+    <!-- El input se conecta con la variable usando @bind -->
+    <input @bind="texto" />
+
+    <!-- Mostramos el valor de la variable en tiempo real -->
+    <p>Escribiste: <strong>@texto</strong></p>
+</div>
+
+@code 
+{
+    private string texto = "Hola Blazor";
+}

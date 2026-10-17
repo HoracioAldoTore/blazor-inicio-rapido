@@ -1,0 +1,20 @@
+﻿@page "/"
+
+<PageTitle>Home</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<!-- 1. Enganchamos el hijo a la variable miHijo -->
+<Parrafo @ref="parrafo" />
+
+<!-- 2. Botón que llama al método público del hijo -->
+<button @onclick="() => parrafo?.CambiarTexto()">
+    Llamar método del hijo
+</button>
+
+@code {
+    // Variable para guardar la referencia del componente
+    private Parrafo? parrafo;
+}

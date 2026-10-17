@@ -1,0 +1,23 @@
+﻿<!-- Aplicamos un estilo en línea que toma la variable colorFondo -->
+<button @onclick="CambiarColor"
+        style="background-color: @colorFondo; color: white; padding: 12px 24px; border: none; border-radius: 6px; cursor: pointer; font-size: 16px;">
+    ¡Haz clic para cambiar mi color!
+</button>
+
+@code {
+    // Variable de estado local que guarda el color actual
+    private string colorFondo = "#007bff"; // Azul inicial
+
+    private void CambiarColor()
+    {
+        // Si el color actual es azul, lo cambiamos a verde; si no, vuelve a azul
+        if (colorFondo == "#007bff")
+        {
+            colorFondo = "#28a745"; // Verde
+        }
+        else
+        {
+            colorFondo = "#007bff"; // Azul
+        }
+    }
+}

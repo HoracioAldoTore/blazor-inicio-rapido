@@ -1,0 +1,12 @@
+﻿<div style="background-color: #e2e8f0; padding: 1rem; border-radius: 8px; margin-bottom: 10px;">
+    <!-- Usamos la variable del parámetro directamente en el HTML -->
+    <h3>¡Bienvenido a la plataforma, @NombreUsuario!</h3>
+    <p>Nos alegra verte por aquí de nuevo.</p>
+</div>
+
+@code {
+    // Definimos el parámetro que vendrá de afuera    
+    [Parameter]
+    [EditorRequired] // <-- Obligatorio
+    public string NombreUsuario { get; set; } = "Invitado";
+}

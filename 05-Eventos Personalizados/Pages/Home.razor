@@ -1,0 +1,23 @@
+﻿@page "/"
+
+<PageTitle>Home</PageTitle>
+
+<h3>Ejemplo de EventCallback</h3>
+
+<p>Mensaje desde el padre: <strong>@mensaje</strong></p>
+
+<!-- Usamos nuestro componente hijo y "escuchamos" su evento -->
+<MiBoton AlHacerClic="MostrarMensaje" />
+
+@code {
+    private string mensaje = "Aún no se ha hecho clic.";
+
+    private void MostrarMensaje()
+    {
+        // Obtenemos la hora, minuto y segundo actual
+        string horaActual = DateTime.Now.ToString("HH:mm:ss");
+
+        // Actualizamos el mensaje con el tiempo de la última pulsación
+        mensaje = $"Último clic registrado a las: {horaActual}";
+    }
+}
