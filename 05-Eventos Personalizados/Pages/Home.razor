@@ -2,22 +2,30 @@
 
 <PageTitle>Home</PageTitle>
 
-<h3>Ejemplo de EventCallback</h3>
+<h3>Eventos personalizados con EventCallback</h3>
 
-<p>Mensaje desde el padre: <strong>@mensaje</strong></p>
+<!-- Usamos el componente hijo y conectamos su evento personalizado "OnTransmitirSegundos"
+     al método local "RecibirSegundos" del componente padre -->
+<BotonSegundos OnTransmitirSegundos="RecibirSegundos" />
 
-<!-- Usamos nuestro componente hijo y "escuchamos" su evento -->
-<MiBoton AlHacerClic="MostrarMensaje" />
+<!-- Evaluamos si ya se recibió un valor válido (mayor o igual a 0) para mostrarlo en pantalla -->
+@if (segundosRecibidos >= 0)
+{
+    <p class="mt-3">Segundo actual recibido del componente hijo: <strong>@segundosRecibidos Seg.</strong></p>
+}
 
 @code {
-    private string mensaje = "Aún no se ha hecho clic.";
+    // Variable de estado para almacenar el valor numérico que nos pasa el componente hijo
+    private int segundosRecibidos = -1;
 
-    private void MostrarMensaje()
+    // Método suscriptor: se ejecuta automáticamente cuando el hijo dispara el EventCallback.
+    // Recibe como parámetro el entero (los segundos) enviado desde el hijo.
+    private void RecibirSegundos(int segundos)
     {
-        // Obtenemos la hora, minuto y segundo actual
-        string horaActual = DateTime.Now.ToString("HH:mm:ss");
+        // Actualizamos la variable con el valor recibido
+        segundosRecibidos = segundos;
 
-        // Actualizamos el mensaje con el tiempo de la última pulsación
-        mensaje = $"Último clic registrado a las: {horaActual}";
+        // Nota: Al modificar los "segundosRecibidos" aquí, Blazor renderiza automáticamente
+        // la interfaz de usuario para reflejar el nuevo valor establecido en la linea de arriba.
     }
 }

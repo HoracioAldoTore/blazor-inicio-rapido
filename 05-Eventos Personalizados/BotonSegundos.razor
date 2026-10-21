@@ -1,0 +1,23 @@
+﻿<!-- Botón visual que captura el evento de clic de HTML y ejecuta el método local 'DispararEvento' -->
+<button class="btn btn-primary" @onclick="DispararEvento">
+    Transmitir Segundos Actuales
+</button>
+
+@code {
+    // Atributo [Parameter] que expone este EventCallback como una propiedad pública,
+    // permitiendo que el componente padre pueda asignarle un método suscriptor.
+    // Envía un dato de tipo entero ('int') hacia afuera.
+    [Parameter]
+    public EventCallback<int> OnTransmitirSegundos { get; set; }
+
+    // Método asincrónico que se activa al hacer clic en el botón
+    private async Task DispararEvento()
+    {
+        // Obtenemos los segundos actuales del reloj del sistema (valor entero de 0 a 59)
+        int cantidadSegundos = DateTime.Now.Second;
+
+        // Invocamos de manera asincrónica el EventCallback, pasándole la cantidad de segundos
+        // calculada como argumento hacia el componente padre.
+        await OnTransmitirSegundos.InvokeAsync(cantidadSegundos);
+    }
+}
